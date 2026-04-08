@@ -32,7 +32,7 @@ CREATE TABLE diet_preferences
     allergies                 VARCHAR(50),
     preferred_cuisine         VARCHAR(50),
     weekly_exercise_frequency INTEGER,
-    adherence_to_diet         NUMERIC(3, 1)
+    adherence_to_diet         NUMERIC(4, 1)
 );
 
 -- Depuis gym_members_exercise_tracking_synthetic_data.csv
@@ -52,28 +52,18 @@ CREATE TABLE fitness_sessions
     experience_level            INTEGER
 );
 
--- daily_food_nutrition_dataset
--- =========================
--- TABLE: categories
--- =========================
 CREATE TABLE categories
 (
     id   SERIAL PRIMARY KEY,
     name VARCHAR(100) UNIQUE NOT NULL
 );
 
--- =========================
--- TABLE: meal_types
--- =========================
 CREATE TABLE meal_types
 (
     id   SERIAL PRIMARY KEY,
     name VARCHAR(50) UNIQUE NOT NULL
 );
 
--- =========================
--- TABLE: foods
--- =========================
 CREATE TABLE foods
 (
     id          SERIAL PRIMARY KEY,
@@ -86,9 +76,6 @@ CREATE TABLE foods
             ON DELETE CASCADE
 );
 
--- =========================
--- TABLE: nutrition_logs
--- =========================
 CREATE TABLE nutrition_logs
 (
     id            SERIAL PRIMARY KEY,
