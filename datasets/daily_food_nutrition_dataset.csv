@@ -18,7 +18,7 @@ Spaghetti Bolognese,Meal/Pasta,460,20.0,55.0,18.0,6.0,10.0,700,50,Dinner,250
 Side Salad (light dressing),Vegetable,70,2.0,8.0,4.0,3.0,3.0,150,0,Dinner,0
 Protein Shake (Whey),Supplement,120,24.0,3.0,1.0,1.0,2.0,160,5,Snack,500
 Cereal (Frosted Flakes 1 cup),Grain/Processed,130,2.0,31.0,0.0,1.0,11.0,190,0,Breakfast,0
-Milk (2%, 1 cup),Dairy,122,8.0,12.0,5.0,0.0,12.0,100,20,Breakfast,0
+Milk (2%, 1 cup),Dairy,122,8.0,12.0,5.0,0.0,12.0,100,20,Breakfast
 Lentil Soup (1 can),Meal/Legume,230,15.0,35.0,3.0,12.0,6.0,650,0,Lunch,250
 White Rice (1 cup cooked),Grain,204,4.2,44.5,0.4,0.6,0.1,2,0,Dinner,0
 Tofu Stir-fry,Meal/Vegetarian,400,18.0,30.0,22.0,7.0,9.0,500,0,Dinner,250
@@ -47,7 +47,7 @@ Celery Sticks (1 cup),Vegetable,14,0.6,3.0,0.2,1.4,1.2,77,0,Snack,0
 Cod (4oz baked),Protein/Fish,95,20.0,0.0,0.8,0.0,0.0,95,55,Dinner,250
 Green Beans (1 cup),Vegetable,31,1.8,7.0,0.2,2.7,3.3,6,0,Dinner,0
 Chocolate Chip Cookie (1 large),Dessert,220,2.5,30.0,11.0,1.5,19.0,160,20,Snack,0
-Tea (Green, 1 cup),Beverage,2,0.5,0.0,0.0,0.0,0.0,2,0,Breakfast,250
+Tea (Green, 1 cup),Beverage,2,0.5,0.0,0.0,0.0,0.0,2,0,Breakfast
 Shrimp (3oz steamed),Protein/Fish,84,20.0,0.2,0.2,0.0,0.0,100,161,Dinner,250
 Pancakes (2 medium),Grain,180,5.0,30.0,5.0,1.0,6.0,450,25,Breakfast,0
 Maple Syrup (2 tbsp),Condiment,104,0.0,27.0,0.0,0.0,24.0,2,0,Breakfast,0
@@ -232,10 +232,10 @@ Sweet & Sour Chicken (1 cup),Meal/Processed,380,18.0,45.0,15.0,3.0,25.0,750,50,D
 Egg Drop Soup (1 cup),Meal/Vegetable,65,5.0,6.0,2.0,0.5,1.0,780,50,Dinner,0
 String Cheese (1 stick),Dairy,80,6.0,1.0,6.0,0.0,0.0,210,20,Snack,0
 Turkey Burger (1 patty),Protein/Meat,160,22.0,2.0,8.0,0.0,1.0,400,70,Lunch,250
-Mustard (1 tbsp, yellow),Condiment,10,0.5,1.0,0.5,0.5,0.0,160,0,Lunch,0
+Mustard (1 tbsp, yellow),Condiment,10,0.5,1.0,0.5,0.5,0.0,160,0,Lunch
 Potato Salad (1/2 cup),Meal/Vegetable,180,2.0,19.0,11.0,2.0,3.0,500,10,Lunch,0
 Cranberry Juice (1 cup),Beverage,130,0.0,33.0,0.0,0.0,30.0,10,0,Breakfast,240
-Spinach (1 cup, raw),Vegetable,7,0.9,1.1,0.1,0.7,0.1,24,0,Lunch,0
+Spinach (1 cup, raw),Vegetable,7,0.9,1.1,0.1,0.7,0.1,24,0,Lunch
 Chicken Piccata (1 serving),Meal/Meat,350,30.0,10.0,20.0,1.0,2.0,600,90,Dinner,250
 Angel Hair Pasta (1 cup),Grain,200,7.0,42.0,1.0,2.0,1.0,1,0,Dinner,0
 Olive Oil (1 tbsp),Condiment,120,0.0,0.0,14.0,0.0,0.0,0,0,Dinner,0
@@ -375,7 +375,7 @@ Italian Dressing (2 tbsp),Condiment,70,0.0,3.0,7.0,0.0,2.0,300,0,Lunch,0
 Croutons (1/4 cup),Grain,50,1.5,7.0,2.0,0.5,0.5,140,0,Lunch,0
 Turkey Sausage (1 patty),Protein/Meat,70,9.0,1.0,4.0,0.0,0.5,280,35,Breakfast,0
 Maple Syrup (1 tbsp),Condiment,52,0.0,13.5,0.0,0.0,12.0,1,0,Breakfast,0
-Margarita (1 drink, 4oz),Beverage,200,0.1,20.0,0.0,0.1,19.0,5,0,Snack,120
+Margarita (1 drink, 4oz),Beverage,200,0.1,20.0,0.0,0.1,19.0,5,0,Snack
 Quesadilla (Cheese 1 medium),Meal/Processed,400,18.0,35.0,22.0,3.0,2.0,700,50,Lunch,250
 Sour Cream (1 tbsp),Condiment/Dairy,30,0.4,0.6,2.9,0.0,0.4,12,6,Lunch,0
 Salsa (2 tbsp),Condiment,10,0.5,2.0,0.0,0.5,1.0,120,0,Lunch,0
@@ -442,7 +442,7 @@ Gochugaru (1 tsp),Condiment,10,0.3,1.8,0.3,0.5,0.3,1,0,Dinner,0
 Gochujang (1 tbsp),Condiment,30,0.5,6.0,0.0,0.5,4.0,200,0,Dinner,0
 Sesame Oil (1 tsp),Condiment,40,0.0,0.0,4.5,0.0,0.0,0,0,Dinner,0
 Fish Sauce (1 tsp),Condiment,5,0.4,0.5,0.0,0.0,0.4,450,0,Dinner,0
-Sugar (1 tsp, in broth),Condiment,16,0.0,4.0,0.0,0.0,4.0,0,0,Dinner,0
+Sugar (1 tsp, in broth),Condiment,16,0.0,4.0,0.0,0.0,4.0,0,0,Dinner
 Green Onion (1 tbsp garnish),Vegetable,3,0.2,0.7,0.0,0.2,0.2,0,0,Dinner,0
 Kombucha (16 oz),Beverage,60,0.0,14.0,0.0,0.0,12.0,20,0,Snack,473
 Beef Wellington (1 slice),Meal/Meat,600,30.0,35.0,38.0,4.0,4.0,850,100,Dinner,0
