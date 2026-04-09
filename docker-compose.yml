@@ -11,6 +11,8 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - healthai_network
 
   adminer:
     image: adminer
@@ -19,6 +21,13 @@ services:
       - "8085:8080"
     depends_on:
       - db
+    networks:
+      - healthai_network
+
+networks:
+  healthai_network:
+    name: healthai_network
+    driver: bridge
 
 volumes:
   postgres_data:
