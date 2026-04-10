@@ -59,10 +59,11 @@ def transform_daily_food_nutrition(df: pd.DataFrame) -> dict:
     ]
     for col in numeric_cols:
         nutrition_logs[col] = pd.to_numeric(nutrition_logs[col], errors="coerce")
+        nutrition_logs[col] = nutrition_logs[col].replace({float('nan'): None})
 
     nutrition_logs["water_intake"] = pd.to_numeric(
         nutrition_logs["water_intake"], errors="coerce"
-    ).fillna(0).astype("Int64")
+    ).fillna(0).astype(int)
 
     nutrition_logs.dropna(subset=["name", "meal_type_name"], inplace=True)
     nutrition_logs.reset_index(drop=True, inplace=True)
