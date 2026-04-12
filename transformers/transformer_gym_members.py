@@ -14,12 +14,12 @@ def transform_gym_members(df: pd.DataFrame) -> dict:
     patients = df[["age", "gender", "weight_(kg)", "height_(m)", "bmi"]].copy()
     patients = patients.rename(columns={
         "weight_(kg)": "weight_kg",
-        "height_(m)":  "height_cm"   # on garde le nom BDD, valeur en mètres
+        "height_(m)":  "height_cm"
     })
     patients["age"]       = pd.to_numeric(patients["age"], errors="coerce").astype("Int64")
-    patients["weight_kg"] = pd.to_numeric(patients["weight_kg"], errors="coerce")
-    patients["height_cm"] = pd.to_numeric(patients["height_cm"], errors="coerce")
-    patients["bmi"]       = pd.to_numeric(patients["bmi"], errors="coerce")
+    patients["weight_kg"] = pd.to_numeric(patients["weight_kg"], errors="coerce").replace({float('nan'): None})
+    patients["height_cm"] = pd.to_numeric(patients["height_cm"], errors="coerce").replace({float('nan'): None})
+    patients["bmi"]       = pd.to_numeric(patients["bmi"], errors="coerce").replace({float('nan'): None})
     patients["gender"]    = patients["gender"].str.strip().str.capitalize()
     patients.dropna(subset=["age", "gender"], inplace=True)
 
@@ -37,19 +37,23 @@ def transform_gym_members(df: pd.DataFrame) -> dict:
         "workout_frequency_(days/week)": "workout_frequency_days_week"
     })
 
-    fitness_sessions["max_bpm"]                    = pd.to_numeric(fitness_sessions["max_bpm"], errors="coerce").fillna(0).astype("Int64")
-    fitness_sessions["avg_bpm"]                    = pd.to_numeric(fitness_sessions["avg_bpm"], errors="coerce").fillna(0).astype("Int64")
-    fitness_sessions["resting_bpm"]                = pd.to_numeric(fitness_sessions["resting_bpm"], errors="coerce").fillna(0).astype("Int64")
-    fitness_sessions["session_duration_hours"]     = pd.to_numeric(fitness_sessions["session_duration_hours"], errors="coerce")
-    fitness_sessions["calories_burned"]            = pd.to_numeric(fitness_sessions["calories_burned"], errors="coerce")
-    fitness_sessions["fat_percentage"]             = pd.to_numeric(fitness_sessions["fat_percentage"], errors="coerce")
-    fitness_sessions["water_intake_liters"]        = pd.to_numeric(fitness_sessions["water_intake_liters"], errors="coerce")
-    fitness_sessions["workout_frequency_days_week"]= pd.to_numeric(fitness_sessions["workout_frequency_days_week"], errors="coerce").fillna(0).astype("Int64")
-    fitness_sessions["experience_level"]           = pd.to_numeric(fitness_sessions["experience_level"], errors="coerce").fillna(0).astype("Int64")
-    fitness_sessions["workout_type"]               = fitness_sessions["workout_type"].str.strip().str.capitalize()
+    fitness_sessions["max_bpm"]                     = pd.to_numeric(fitness_sessions["max_bpm"], errors="coerce").fillna(0).astype("Int64")
+    fitness_sessions["avg_bpm"]                     = pd.to_numeric(fitness_sessions["avg_bpm"], errors="coerce").fillna(0).astype("Int64")
+    fitness_sessions["resting_bpm"]                 = pd.to_numeric(fitness_sessions["resting_bpm"], errors="coerce").fillna(0).astype("Int64")
+    fitness_sessions["workout_frequency_days_week"] = pd.to_numeric(fitness_sessions["workout_frequency_days_week"], errors="coerce").fillna(0).astype("Int64")
+    fitness_sessions["experience_level"]            = pd.to_numeric(fitness_sessions["experience_level"], errors="coerce").fillna(0).astype("Int64")
 
-    # Suppression des lignes sans données critiques
-    fitness_sessions.dropna(subset=["max_bpm", "calories_burned", "workout_type"], inplace=True)
+    # ← Colonnes décimales : replace NaN par None
+    decimal_cols = [
+        "session_duration_hours", "calories_burned",
+        "fat_percentage", "water_intake_liters"
+    ]
+    for col in decimal_cols:
+        fitness_sessions[col] = pd.to_numeric(fitness_sessions[col], errors="coerce").replace({float('nan'): None})
+
+    fitness_sessions["workout_type"] = fitness_sessions["workout_type"].str.strip().str.capitalize()
+
+    fitness_sessions.dropna(subset=["calories_burned", "workout_type"], inplace=True)
 
     print(f"[TRANSFORM] patients: {len(patients)} lignes")
     print(f"[TRANSFORM] fitness_sessions: {len(fitness_sessions)} lignes")
